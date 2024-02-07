@@ -18,11 +18,11 @@ public class RoundManager : MonoBehaviour
     private bool roundEnded; // is the round over
     private bool isDrawRound; // is it a draw round
     private bool scoreTied; // is there a tied score 
-    public GameUtils gameUtilityScript; // the script that has a function for getting the active players count
+    //public GameUtils gameUtilityScript; // the script that has a function for getting the active players count
 
     void Start()
     {
-        gameUtilityScript = FindObjectOfType<GameUtils>();
+        //gameUtilityScript = FindObjectOfType<GameUtils>();
     }
 
     void Update()
@@ -57,8 +57,8 @@ public class RoundManager : MonoBehaviour
 
         else
         {
-            var numberOfRemainingPlayers = gameUtilityScript.GetActivePlayers().Count;
-            roundsRemaining = numberOfRemainingPlayers - 1;
+           // var numberOfRemainingPlayers = gameUtilityScript.GetActivePlayers().Count;
+            //roundsRemaining = numberOfRemainingPlayers - 1;
         }
 
         if (PlayerPrefs.GetInt("CurrentRoundNumber") != 0)
@@ -95,7 +95,7 @@ public class RoundManager : MonoBehaviour
         }
 
         var scoreHolder = 0;
-        var winningScore = playerPoints.TryGetValue(PlayerPrefs.GetString("RemainingPlayers"), out scoreHolder);
+       // var winningScore = playerPoints.TryGetValue(PlayerPrefs.GetString("RemainingPlayers"), out scoreHolder);
         PlayerPrefs.SetString("RoundEndScores", PlayerPrefs.GetString("RemainingPlayers") + ":" + scoreHolder);
     }
 
@@ -161,16 +161,16 @@ public class RoundManager : MonoBehaviour
 
             if (isDrawRound)
             {
-                var currentPlayers = GameUtils.getActivePlayers();
-                currentPlayers.Remove(playerWithLowestScore);
-                PlayerPrefs.SetString("RemainingPlayers", string.Join(",", currentPlayers));
+               // var currentPlayers = GameUtils.getActivePlayers();
+               // currentPlayers.Remove(playerWithLowestScore);
+               // PlayerPrefs.SetString("RemainingPlayers", string.Join(",", currentPlayers));
             
             }
             else
             {
-                var currentPlayers = GameUtils.getActivePlayers();
-                currentPlayers.Remove(playerWithLowestScore);
-                PlayerPrefs.SetString("RemainingPlayers", string.Join(",", currentPlayers));
+               // var currentPlayers = GameUtils.getActivePlayers();
+               // currentPlayers.Remove(playerWithLowestScore);
+               // PlayerPrefs.SetString("RemainingPlayers", string.Join(",", currentPlayers));
             }
 
             // Return the playerID with the lowest score.
