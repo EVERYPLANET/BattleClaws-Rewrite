@@ -5,7 +5,7 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     public int PlayerNum { get; private set; }
-    public Color PlayerColor {  }
+    //public Color PlayerColor {  }
 
 
 }
