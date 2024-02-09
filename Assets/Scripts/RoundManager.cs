@@ -99,7 +99,7 @@ public class RoundManager : MonoBehaviour
 
     }
 
-    public void GetFinalScores()
+    public void TrackProgressingPlayers()
     {
         List<string> activePlayers;
         if (isDrawRound)
@@ -110,12 +110,6 @@ public class RoundManager : MonoBehaviour
         else
         {
             activePlayers = PlayerPrefs.GetString("RemainingPlayers").Split(',').ToList();
-        }
-
-        foreach (string player in activePlayers)
-        {
-            int playerNum = int.Parse(player[1].ToString()) - 1;
-           
         }
 
     }
@@ -134,7 +128,7 @@ public class RoundManager : MonoBehaviour
 
     public string CompareScores()
     {
-        GetFinalScores();
+        TrackProgressingPlayers();
         // initialize variables to track lowest score and respective player
         int lowestScore = int.MaxValue; // Initialize with a value higher than the possible scores.
         string playerWithLowestScore = "";
@@ -175,7 +169,6 @@ public class RoundManager : MonoBehaviour
     
         else
         {
-
             // Return the playerID with the lowest score.
             return playerWithLowestScore;
         }
@@ -184,14 +177,14 @@ public class RoundManager : MonoBehaviour
     public void EndRound()
     {
       CompareScores();
-      EliminateLoser();
+      EliminateLowestScorer();
       PushRoundData();
       roundEnded = true;
       ResultsPanel.SetActive(true);
     }
 
 
-    public void EliminateLoser()
+    public void EliminateLowestScorer()
     {
         string playerWithLowestScore = CompareScores(); // Get the player with the lowest score.
         // Check if there's only one player with the lowest score and remove them.
