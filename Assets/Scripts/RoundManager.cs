@@ -115,14 +115,9 @@ public class RoundManager : MonoBehaviour
         foreach (string player in activePlayers)
         {
             int playerNum = int.Parse(player[1].ToString()) - 1;
-           // GameObject currentPlayer = GameObject.FindGameObjectWithTag(player + " Player");
-           //int score = currentPlayer.GetComponent<Claw_Manager>().getPoints();
-           // playerPoints[player] = score;
+           
         }
 
-        var scoreHolder = 0;
-       // var winningScore = playerPoints.TryGetValue(PlayerPrefs.GetString("RemainingPlayers"), out scoreHolder);
-        PlayerPrefs.SetString("RoundEndScores", PlayerPrefs.GetString("RemainingPlayers") + ":" + scoreHolder);
     }
 
     public int GetPointsForPlayers(int playerID)
@@ -175,25 +170,11 @@ public class RoundManager : MonoBehaviour
             PlayerPrefs.SetString("isDraw", "true");
             
             isDrawRound = true;
-           // DrawTextBox.text = playersWithIdenticalLowestScores[0] + " VS " + playersWithIdenticalLowestScores[1];
             return "Tie among players: " + string.Join(", ", playersWithIdenticalLowestScores);
         }
     
         else
         {
-         
-            if (isDrawRound)
-            {
-               // var currentPlayers = GameUtils.getActivePlayers();
-               // PlayerPrefs.SetString("RemainingPlayers", string.Join(",", currentPlayers));
-            
-            }
-            else
-            {
-               // var currentPlayers = GameUtils.getActivePlayers();
-               // currentPlayers.Remove(playerWithLowestScore);
-               // PlayerPrefs.SetString("RemainingPlayers", string.Join(",", currentPlayers));
-            }
 
             // Return the playerID with the lowest score.
             return playerWithLowestScore;
@@ -216,7 +197,6 @@ public class RoundManager : MonoBehaviour
         // Check if there's only one player with the lowest score and remove them.
         if (playerWithLowestScore != "" && !scoreTied)
         {
-        
             List<string> activePlayers = PlayerPrefs.GetString("RemainingPlayers").Split(',').ToList();
             activePlayers.Remove(playerWithLowestScore);
             PlayerPrefs.SetString("RemainingPlayers", string.Join(",", activePlayers)); // Update PlayerPrefs with the modified active players list.
