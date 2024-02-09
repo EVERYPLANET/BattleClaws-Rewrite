@@ -24,13 +24,15 @@ public class SceneChanger : MonoBehaviour
         
         if(isSplash && Input.GetKeyDown(KeyCode.A))
         {
-            StartCoroutine(loadChosenSceneWithDelay());
+            StartCoroutine(loadChosenSceneWithDelay(destinationSceneName));
         }
     }
 
-    public IEnumerator loadChosenSceneWithDelay() 
+    public IEnumerator loadChosenSceneWithDelay(string SceneName) 
     {
         yield return new WaitForSeconds(1);
         SceneManager.LoadScene(destinationSceneName);
     }
+
+   
 }

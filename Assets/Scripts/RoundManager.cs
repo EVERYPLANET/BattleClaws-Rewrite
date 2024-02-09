@@ -19,26 +19,50 @@ public class RoundManager : MonoBehaviour
     private bool isDrawRound; // is it a draw round
     private bool scoreTied; // is there a tied score 
     //public GameUtils gameUtilityScript; // the script that has a function for getting the active players count
+    [SerializeField] private GameObject ResultsPanel;
+    public SceneChanger sceneChangingScript;
 
     void Start()
     {
+        sceneChangingScript = new SceneChanger();
+        ResultsPanel.SetActive(false);
         //gameUtilityScript = FindObjectOfType<GameUtils>();
     }
 
     void Update()
     {
         // if the round ends and there isn't a tie
-        if(Input.anyKey && roundEnded && !scoreTied)
+        if(roundEnded && !scoreTied)
         {
-            PlayerPrefs.SetString("isDraw", "false");
-            // insert the scene to advance to the next round 
+            PlayerPrefs.SetString("isDraw", "false"); 
+            ResultsPanel.SetActive(true);
+         
         }
 
         //if  the round ends in a tie
-        else if(Input.anyKey && roundEnded && scoreTied)
+        else if(roundEnded && scoreTied)
         {
             PlayerPrefs.SetString("isDraw", "true");
-            // insert the logic to advance to the draw round scene
+            ResultsPanel.SetActive(true);
+        }
+
+        if (ResultsPanel.activeSelf) // if the player is looking at the results of the round (player scores) and they press a button 
+        {
+            
+            if (Input.GetKeyDown(KeyCode.A)) // placeholder input (CHANGE ME)
+            {
+                if (isDrawRound)
+                {
+                    // if the next round should be a draw round, load the draw round scene
+                    sceneChangingScript.loadChosenSceneWithDelay("Draw");
+                }
+
+                else
+                {
+                    //if the next round should be a regular round // load the round scene
+                    sceneChangingScript.loadChosenSceneWithDelay("Round");
+                }
+            }
         }
     }
 
@@ -71,6 +95,8 @@ public class RoundManager : MonoBehaviour
             //Go to end game logic
           //  SceneManager.LoadScene("");
         }
+
+
     }
 
     public void GetFinalScores()
@@ -155,14 +181,10 @@ public class RoundManager : MonoBehaviour
     
         else
         {
-            Debug.Log("standard Scores Reached!" + playerWithLowestScore);
-            // Display text for the player with the lowest score.
-           // EliminateTextBox.text = (playerWithLowestScore.ToUpper() + "<br>" + GetPointsForPlayer(playerWithLowestScore).ToString().PadLeft(6, '0'));
-
+         
             if (isDrawRound)
             {
                // var currentPlayers = GameUtils.getActivePlayers();
-               // currentPlayers.Remove(playerWithLowestScore);
                // PlayerPrefs.SetString("RemainingPlayers", string.Join(",", currentPlayers));
             
             }
@@ -180,29 +202,13 @@ public class RoundManager : MonoBehaviour
 
     public void EndRound()
     {
-        if (!roundEnded)
-        {
-           // freezeControls = 2f;
-            CompareScores();
-            EliminateLoser();
-
-
-            if (scoreTied)
-            {
-               DeclareDraw();
-            }
-
-           PushRoundData();
-           roundEnded = true;
-
-        }
+      CompareScores();
+      EliminateLoser();
+      PushRoundData();
+      roundEnded = true;
+      ResultsPanel.SetActive(true);
     }
 
-    public void DeclareDraw()
-    {
-       //DrawIdentifierScreen.SetActive(true);
-      // roundScreenAnim.SetTrigger("Draw");
-    }
 
     public void EliminateLoser()
     {
@@ -210,8 +216,7 @@ public class RoundManager : MonoBehaviour
         // Check if there's only one player with the lowest score and remove them.
         if (playerWithLowestScore != "" && !scoreTied)
         {
-           // EliminationScreen.SetActive(true);
-            //roundScreenAnim.SetTrigger("Elim");
+        
             List<string> activePlayers = PlayerPrefs.GetString("RemainingPlayers").Split(',').ToList();
             activePlayers.Remove(playerWithLowestScore);
             PlayerPrefs.SetString("RemainingPlayers", string.Join(",", activePlayers)); // Update PlayerPrefs with the modified active players list.
