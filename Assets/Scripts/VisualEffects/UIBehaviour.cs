@@ -9,22 +9,23 @@ public class UIBehaviour : MonoBehaviour
     // this script allows for different fade in / flash / swapping sprites depending on what's needed. 
     // add this to a TMP or a UI Image and adjust values in the inspector to toggle different features / speeds
 
+    // Text Variables
     private TextMeshProUGUI textObject;
+    [SerializeField] private float textFadespeed;
+    [SerializeField] private bool ShouldFadeText;
+
+    //UI Image Variables
     private Image buttonPromptImage;
     private Sprite startingSprite;
-    [SerializeField]  private float textFadespeed;
     [SerializeField] private float spriteSwapSpeed;
     [SerializeField] private Sprite promptSprite;
     [SerializeField] private bool ShouldSwapSprite;
-    [SerializeField] private bool ShouldFadeText;
-
 
     public void Start()
     {
         textObject = GetComponent<TextMeshProUGUI>();
         buttonPromptImage = GetComponent<Image>();
-      
-
+     
         if(buttonPromptImage != null)
         {
             startingSprite = buttonPromptImage.sprite;
@@ -37,10 +38,7 @@ public class UIBehaviour : MonoBehaviour
             {
                 StartCoroutine(SwapImageSprite());
             }
-            
         }
-        
-       
     }
 
     private void Update()
@@ -73,14 +71,14 @@ public class UIBehaviour : MonoBehaviour
 
     public IEnumerator SwapImageSprite()
     {
-       
-        yield return new WaitForSeconds(spriteSwapSpeed);
-        buttonPromptImage.sprite = promptSprite;
+      yield return new WaitForSeconds(spriteSwapSpeed);
+
+      buttonPromptImage.sprite = promptSprite;
         
-        yield return new WaitForSeconds(spriteSwapSpeed);
+      yield return new WaitForSeconds(spriteSwapSpeed);
 
-        buttonPromptImage.sprite = startingSprite;
+      buttonPromptImage.sprite = startingSprite;
 
-       StartCoroutine(SwapImageSprite());
+      StartCoroutine(SwapImageSprite());
     }
 }

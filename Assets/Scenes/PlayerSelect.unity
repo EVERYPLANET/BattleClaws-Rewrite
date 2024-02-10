@@ -2873,7 +2873,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c640753e8f950884780da964b4fb68f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  textFadespeed: 0
+  textFadespeed: 3
   spriteSwapSpeed: 0
   promptSprite: {fileID: 0}
   ShouldSwapSprite: 0
