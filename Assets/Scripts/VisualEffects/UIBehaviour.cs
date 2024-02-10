@@ -11,15 +11,19 @@ public class UIBehaviour : MonoBehaviour
 
     // Text Variables
     private TextMeshProUGUI textObject;
-    [SerializeField] private float textFadespeed;
     [SerializeField] private bool ShouldFadeText;
 
     //UI Image Variables
     private Image buttonPromptImage;
     private Sprite startingSprite;
-    [SerializeField] private float spriteSwapSpeed;
     [SerializeField] private Sprite promptSprite;
     [SerializeField] private bool ShouldSwapSprite;
+
+
+
+    // universal variables (speed etc)
+    [SerializeField] private float desiredSpeed;
+
 
     public void Start()
     {
@@ -52,7 +56,7 @@ public class UIBehaviour : MonoBehaviour
     public void FadeInText()
     {
         {
-            textObject.alpha = Mathf.Sin(Time.time * textFadespeed) * 0.5f + 0.5f;
+            textObject.alpha = Mathf.Sin(Time.time * desiredSpeed) * 0.5f + 0.5f;
         }
     }
 
@@ -71,14 +75,16 @@ public class UIBehaviour : MonoBehaviour
 
     public IEnumerator SwapImageSprite()
     {
-      yield return new WaitForSeconds(spriteSwapSpeed);
+      yield return new WaitForSeconds(desiredSpeed);
 
       buttonPromptImage.sprite = promptSprite;
         
-      yield return new WaitForSeconds(spriteSwapSpeed);
+      yield return new WaitForSeconds(desiredSpeed);
 
       buttonPromptImage.sprite = startingSprite;
 
       StartCoroutine(SwapImageSprite());
     }
+
+ 
 }
