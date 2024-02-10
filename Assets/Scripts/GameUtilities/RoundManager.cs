@@ -128,7 +128,8 @@ public class RoundManager : MonoBehaviour
 
     public string CompareScores()
     {
-        TrackProgressingPlayers();
+        TrackProgressingPlayers(); // if its a draw round, get the list of drawing players // otherwise get the list of remaining players 
+
         // initialize variables to track lowest score and respective player
         int lowestScore = int.MaxValue; // Initialize with a value higher than the possible scores.
         string playerWithLowestScore = "";
@@ -187,11 +188,12 @@ public class RoundManager : MonoBehaviour
     public void EliminateLowestScorer()
     {
         string playerWithLowestScore = CompareScores(); // Get the player with the lowest score.
-        // Check if there's only one player with the lowest score and remove them.
+        // Check that there is no tied scores and if so, remove the player with the lowest score from the list of remaining players.
         if (playerWithLowestScore != "" && !scoreTied)
         {
             List<string> activePlayers = PlayerPrefs.GetString("RemainingPlayers").Split(',').ToList();
             activePlayers.Remove(playerWithLowestScore);
+
             PlayerPrefs.SetString("RemainingPlayers", string.Join(",", activePlayers)); // Update PlayerPrefs with the modified active players list.
         }
     }
