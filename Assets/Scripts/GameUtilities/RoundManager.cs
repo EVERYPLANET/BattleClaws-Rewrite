@@ -10,13 +10,17 @@ using System.Linq;
 
 public class RoundManager : MonoBehaviour
 {
-    // Create a dictionary to store points for each player.
+    // Create a dictionary to store points for each player for the current round
     private Dictionary<int, int> playerPoints = new Dictionary<int, int>();
+
+
+    // additional dictionary that stores total points and gets added to each round ( see accumulate total points)
+    private Dictionary<int, int> playerTotalScores = new Dictionary<int, int>(); 
 
     private int roundsRemaining; // rounds left in the game
     private int currentRound; // current round Number
     private bool roundEnded; // is the round over
-    private bool isDrawRound; // is it a draw round
+    private bool isDrawRound; // is the current round a draw round
     private bool scoreTied; // is there a tied score 
     //public GameUtils gameUtilityScript; // the script that has a function for getting the active players count
     [SerializeField] private GameObject ResultsPanel;
@@ -31,21 +35,7 @@ public class RoundManager : MonoBehaviour
 
     void Update()
     {
-        // if the round ends and there isn't a tie
-        if(roundEnded && !scoreTied)
-        {
-            PlayerPrefs.SetString("isDraw", "false"); 
-            ResultsPanel.SetActive(true);
-         
-        }
-
-        //if  the round ends in a tie
-        else if(roundEnded && scoreTied)
-        {
-            PlayerPrefs.SetString("isDraw", "true");
-            ResultsPanel.SetActive(true);
-        }
-
+    
         if (ResultsPanel.activeSelf) // if the player is looking at the results of the round (player scores) and they press a button 
         {
             
@@ -68,12 +58,7 @@ public class RoundManager : MonoBehaviour
 
     public void ManageRounds()
     {
-        if(PlayerPrefs.GetString("isDraw") == "true")
-        {
-            isDrawRound = true;
-            return;
-        }
-
+       
         if(PlayerPrefs.GetInt("TotalRounds") !=0)
         {
             roundsRemaining = PlayerPrefs.GetInt("TotalRounds");
@@ -95,40 +80,46 @@ public class RoundManager : MonoBehaviour
             //Go to end game logic
           //  SceneManager.LoadScene("");
         }
-
-
     }
 
-    public void TrackProgressingPlayers()
-    {
-        List<string> activePlayers;
-        if (isDrawRound)
-        {
-            activePlayers = PlayerPrefs.GetString("DrawingPlayers").Split(',').ToList();
-        }
 
-        else
-        {
-            activePlayers = PlayerPrefs.GetString("RemainingPlayers").Split(',').ToList();
-        }
-
-    }
 
     public int GetPointsForPlayers(int playerID)
     {
-        if (playerPoints.ContainsKey(playerID))
+        if (playerTotalScores.ContainsKey(playerID))
         {
-            return playerPoints[playerID];
+            return playerTotalScores[playerID];
         }
         else
         {
             return 0;
         }
     }
+    private void AccumulateTotalScores()
+    {
+        // Loop through the current round scores and update the total scores dictionary
+        foreach (var kvp in playerPoints)
+        {
+            int playerID = kvp.Key;
+            int roundScore = kvp.Value;
+
+            // If the player is not in the total scores dictionary, add them with the round score
+            if (!playerTotalScores.ContainsKey(playerID))
+            {
+                playerTotalScores[playerID] = roundScore;
+            }
+            else
+            {
+                // If the player is already in the total scores dictionary, update their total score
+                playerTotalScores[playerID] += roundScore;
+            }
+        }
+    }
 
     public string CompareScores()
     {
-        TrackProgressingPlayers(); // if its a draw round, get the list of drawing players // otherwise get the list of remaining players 
+        List<string> activePlayers;
+        activePlayers = PlayerPrefs.GetString("RemainingPlayers").Split(',').ToList();
 
         // initialize variables to track lowest score and respective player
         int lowestScore = int.MaxValue; // Initialize with a value higher than the possible scores.
@@ -156,7 +147,7 @@ public class RoundManager : MonoBehaviour
                 playersWithIdenticalLowestScores.Add(playerID);
 
                 PlayerPrefs.SetString("DrawingPlayers", string.Join(",", playersWithIdenticalLowestScores));
-                PlayerPrefs.SetString("isDraw", "true");
+               
             }
         }
 
@@ -170,18 +161,37 @@ public class RoundManager : MonoBehaviour
     
         else
         {
+            PlayerPrefs.SetString("isDraw", "false");
             // Return the playerID with the lowest score.
             return playerWithLowestScore;
         }
     }
 
+
+
     public void EndRound()
     {
-      CompareScores();
-      EliminateLowestScorer();
-      PushRoundData();
-      roundEnded = true;
-      ResultsPanel.SetActive(true);
+        AccumulateTotalScores(); // add totals before comparing
+
+        CompareScores(); // check total scores for a loser or a draw
+
+        if (!isDrawRound) 
+        {
+            // if theres no draw, eliminate the losing player 
+            EliminateLowestScorer();
+            PushRoundData();
+            ManageRounds();
+        }
+
+        else
+        {
+            // add draw logic here to create the list of drawn players and ready up the next round (see void update )
+
+            
+        }
+
+      roundEnded = true; // mark that the round is ended 
+      ResultsPanel.SetActive(true); // activate the results panel so the players can see their scores
     }
 
 
