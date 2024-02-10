@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.3298218, g: 0.5404099, b: 0.80934215, a: 1}
+  m_IndirectSpecularColor: {r: 0.3296474, g: 0.5388064, b: 0.80842113, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -876,7 +876,7 @@ Transform:
   m_GameObject: {fileID: 306729296}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -1.35, y: -0, z: 19.42}
+  m_LocalPosition: {x: -1.35, y: -0, z: 19.23}
   m_LocalScale: {x: 1, y: 5.8552, z: 23.401499}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1698,6 +1698,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 108074562802827907, guid: bc8e59d42704e4418b7e049081fab87f, type: 3}
+      propertyPath: Loop
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 108074562802827907, guid: bc8e59d42704e4418b7e049081fab87f, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 1b5397c57bdd74b4fbba9446660a0e31, type: 3}
+    - target: {fileID: 108074562802827907, guid: bc8e59d42704e4418b7e049081fab87f, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1162895151949402688, guid: bc8e59d42704e4418b7e049081fab87f, type: 3}
       propertyPath: m_Name
       value: AudioManager
@@ -2609,7 +2621,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: b375c76123c35304c88885b059830688, type: 2}
+  - {fileID: 2100000, guid: 7949b88192dab83438513503474377a2, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2749,7 +2761,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: -9, y: 0}
+  m_AnchoredPosition: {x: -9, y: -29}
   m_SizeDelta: {x: 959.99, y: 99.293}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &1354523996
@@ -2772,7 +2784,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: PRESS ANY KEY TO JOIN
+  m_text: PRESS ANY button TO JOIN
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 58768ab4d5f2faa428a65aa021ab67b7, type: 2}
   m_sharedMaterial: {fileID: -973849912930560469, guid: 58768ab4d5f2faa428a65aa021ab67b7, type: 2}
@@ -2799,8 +2811,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 60
-  m_fontSizeBase: 60
+  m_fontSize: 50
+  m_fontSizeBase: 50
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -3253,7 +3265,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 9.410706, y: -145.1391}
+  m_AnchoredPosition: {x: 9.410706, y: -195}
   m_SizeDelta: {x: 315.1786, y: 69.7218}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1602721954
