@@ -587,7 +587,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c640753e8f950884780da964b4fb68f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+<<<<<<< Updated upstream
   ShouldFadeText: 0
+=======
+  textObject: {fileID: 0}
+  ShouldFadeText: 0
+  buttonPromptImage: {fileID: 0}
+  startingSprite: {fileID: 0}
+>>>>>>> Stashed changes
   promptSprite: {fileID: 0}
   ShouldSwapSprite: 0
   desiredSpeed: 0.1
@@ -962,6 +969,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   destinationSceneName: PlayerSelect
   audioHolder: {fileID: 1597926872}
+<<<<<<< Updated upstream
+=======
+  audioScript: {fileID: 0}
+  currentSceneName: 
+  isSplash: 0
+>>>>>>> Stashed changes
 --- !u!4 &1893424670
 Transform:
   m_ObjectHideFlags: 0
