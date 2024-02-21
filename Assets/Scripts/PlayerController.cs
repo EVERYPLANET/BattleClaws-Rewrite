@@ -11,6 +11,12 @@ public class PlayerController : MonoBehaviour
     private bool _isDropped;
     private bool _knockback;
 
+    public enum SwitchStates
+    {
+       
+        sceneChange
+    }
+
     // Allows for other scripts to access the Player class without calling it again
     public Player Properties { get; set; }
 
@@ -138,6 +144,18 @@ public class PlayerController : MonoBehaviour
     }
 
     #endregion
+
+
+/*    private void OnContinue(InputAction.CallbackContext ctx)
+    {
+      switch ()
+        {
+            case 0:
+                
+
+               
+        }
+    }*/
     
     // Set some values
     private void Awake()
