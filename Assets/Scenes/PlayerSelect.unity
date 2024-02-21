@@ -5516,7 +5516,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: c6c5172029e01f44ca7ac26163213cb1, type: 2}
+  - {fileID: 2100000, guid: cc733023357ba294aa93371e0728fef0, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -9464,6 +9464,18 @@ PrefabInstance:
     - target: {fileID: 2214591148057530377, guid: 432b6e00b3148894bb978a4e80e31094, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5096874560995067204, guid: 432b6e00b3148894bb978a4e80e31094, type: 3}
+      propertyPath: InitialModule.startColor.maxColor.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5096874560995067204, guid: 432b6e00b3148894bb978a4e80e31094, type: 3}
+      propertyPath: InitialModule.startColor.maxColor.g
+      value: 0.8548144
+      objectReference: {fileID: 0}
+    - target: {fileID: 5096874560995067204, guid: 432b6e00b3148894bb978a4e80e31094, type: 3}
+      propertyPath: InitialModule.startColor.maxColor.r
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6142808411409316553, guid: 432b6e00b3148894bb978a4e80e31094, type: 3}
       propertyPath: m_Name
