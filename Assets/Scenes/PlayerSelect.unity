@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.29503417, g: 0.48821807, b: 0.73246586, a: 1}
+  m_IndirectSpecularColor: {r: 0.5264376, g: 0.5036338, b: 0.5423787, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -318,7 +318,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 43cba4fc81cd93845a632e24bcee89bb, type: 2}
+  - {fileID: 2100000, guid: 78a6796edef07b448abd6da3b6a5a411, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -720,8 +720,8 @@ RectTransform:
   - {fileID: 271121159}
   - {fileID: 248101728}
   - {fileID: 1623018364}
-  - {fileID: 1842449801}
   - {fileID: 867724122}
+  - {fileID: 1842449801}
   - {fileID: 137449088}
   - {fileID: 671601294}
   - {fileID: 1686083560}
@@ -2081,7 +2081,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 43cba4fc81cd93845a632e24bcee89bb, type: 2}
+  - {fileID: 2100000, guid: cc733023357ba294aa93371e0728fef0, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -3645,7 +3645,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 7949b88192dab83438513503474377a2, type: 2}
+  - {fileID: 2100000, guid: cc733023357ba294aa93371e0728fef0, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -5215,7 +5215,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 7949b88192dab83438513503474377a2, type: 2}
+  - {fileID: 2100000, guid: cc733023357ba294aa93371e0728fef0, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -6537,7 +6537,7 @@ Transform:
   m_GameObject: {fileID: 1530124532}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 17.71, y: 3.47, z: -4.66}
+  m_LocalPosition: {x: 17.77, y: 3.47, z: -4.83}
   m_LocalScale: {x: 0.5, y: 1.5, z: 6.5}
   m_ConstrainProportionsScale: 0
   m_Children: []
