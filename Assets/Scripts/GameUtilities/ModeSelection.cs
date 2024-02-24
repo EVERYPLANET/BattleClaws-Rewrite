@@ -35,7 +35,6 @@ public class ModeSelection : MonoBehaviour
         UpdateTextDisplay();
         SliderHolder.SetActive(false); // turn the slider off on start
         FutureModesInfo.SetActive(false);
-        
     }
 
 
@@ -66,36 +65,30 @@ public class ModeSelection : MonoBehaviour
             }
 
             UpdateTextDisplay();
-
         }
-
     }
 
     public void OnTriggerExit(Collider other) // if a player removes their vote, minus the vote and check to see if there is still a majority 
     {
         if (other.CompareTag("Collectable"))
         {
-           
-            
-                votesForThisMode--;
-                if (votesForThisMode <= 0)
-                {
-                    UpdateTextDisplay();
-                }
-                else
-                {
-                    VoteDisplay.text = ("Votes: " + votesForThisMode).ToString();
-                }
-                checkVotes();
-                UpdateTextDisplay();
-            
-            
+            votesForThisMode--;
+            if (votesForThisMode <= 0)
+            {
+               UpdateTextDisplay();
+            }
+            else
+            {
+               VoteDisplay.text = ("Votes: " + votesForThisMode).ToString();
+            }
+           checkVotes();
+           UpdateTextDisplay();
         }
     }
 
     public void checkVotes()
     {
-        possibleMaxVotes = 1; // this should be _amountOfPlayers but that variable is set to private (CHANGE ME)
+        possibleMaxVotes = Player.amountOfPlayers; 
         NumReqForMajority = possibleMaxVotes / 2 + 1;
 
         if(votesForThisMode >= NumReqForMajority) // if any given mode has enough votes for a majority 
@@ -106,7 +99,6 @@ public class ModeSelection : MonoBehaviour
             ManageSlider(); // update the slider value
             UpdateTextDisplay();
         } 
-
      
         else
         {
@@ -114,8 +106,6 @@ public class ModeSelection : MonoBehaviour
             ManageSlider(); // reset the slider value 
             UpdateTextDisplay();
         }
-
-       
     }
 
     public void ManageSlider()
@@ -132,8 +122,6 @@ public class ModeSelection : MonoBehaviour
             CancelInvoke("FillSlider"); // stop filling the slider 
             BeginningSlider.value = 0;
             SliderHolder.SetActive(false); // turn the slider off again
-
-            
         }
     }
 
@@ -153,8 +141,6 @@ public class ModeSelection : MonoBehaviour
         {
             SceneManager.LoadScene(ModeSceneToLoad);
         }
-     
-
     }
 
     public void UpdateTextDisplay()
@@ -163,7 +149,7 @@ public class ModeSelection : MonoBehaviour
         {
             StatusText.text = requiredPlayers + " or more Players required";
         }
-       else  if (ModeSelected && ModeNameString != "Coming Soon")
+        else if (ModeSelected && ModeNameString != "Coming Soon")
         {
             StatusText.text = "Starting " + ModeNameString + " ...";
         }
@@ -175,26 +161,21 @@ public class ModeSelection : MonoBehaviour
         else if (ModeNameString == "Coming Soon")
         {
             StatusText.text = "More Game Modes Coming Soon!";
-            Animator panelAnim = FutureModesInfo.GetComponent<Animator>();
-            FutureModesInfo.SetActive(true);
-            if(panelAnim == null)
-            {
-                panelAnim.SetTrigger("Activate");
-            }
-            else
-            {
-                panelAnim.SetTrigger("DeActivate");
-            }
-            
-            
-            
-            
+            ComingSoonInfo();
         }
-
-     
-        
     }
 
-  
-
+    public void ComingSoonInfo()
+    {
+        Animator panelAnim = FutureModesInfo.GetComponent<Animator>();
+        FutureModesInfo.SetActive(true);
+        if (panelAnim == null)
+        {
+            panelAnim.SetTrigger("Activate");
+        }
+        else
+        {
+            panelAnim.SetTrigger("DeActivate");
+        }
+    }
 }
