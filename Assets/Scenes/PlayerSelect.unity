@@ -2094,11 +2094,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -2654784885310386258, guid: 0095428696c65ca4e9884ca9b089b1e1, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.088
+      value: -0.053
       objectReference: {fileID: 0}
     - target: {fileID: -2654784885310386258, guid: 0095428696c65ca4e9884ca9b089b1e1, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.577
+      value: 0.665
       objectReference: {fileID: 0}
     - target: {fileID: -2654784885310386258, guid: 0095428696c65ca4e9884ca9b089b1e1, type: 3}
       propertyPath: m_LocalRotation.w
@@ -3382,8 +3382,8 @@ Camera:
   m_GameObject: {fileID: 1457066073}
   m_Enabled: 1
   serializedVersion: 2
-  m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_ClearFlags: 2
+  m_BackGroundColor: {r: 0, g: 0, b: 0, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 1
@@ -3462,7 +3462,7 @@ GameObject:
   - component: {fileID: 1503767994}
   m_Layer: 0
   m_Name: Level Boundaries
-  m_TagString: Boundary
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3501,8 +3501,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.13029154, y: 0.9259255, z: 2.771655}
-  m_Center: {x: -1.3189093, y: 0.045227222, z: -0.085826196}
+  m_Size: {x: 0.1380163, y: 1.5817956, z: 2.8498242}
+  m_Center: {x: -1.3150469, y: 0.37316146, z: -0.12491009}
 --- !u!65 &1503767994
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3522,8 +3522,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 2.6652887, y: 1, z: 0.2640926}
-  m_Center: {x: 0.05290992, y: 0, z: -1.4048517}
+  m_Size: {x: 2.6652887, y: 1.622644, z: 0.29736575}
+  m_Center: {x: 0.05290999, y: 0.3113206, z: -1.3882154}
 --- !u!65 &1503767995
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3543,8 +3543,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 2.8077614, y: 0.7053307, z: 0.24019434}
-  m_Center: {x: -0.010554995, y: 0.14733656, z: 1.3672377}
+  m_Size: {x: 2.8077614, y: 1.3837237, z: 0.30739322}
+  m_Center: {x: -0.010554995, y: 0.4865325, z: 1.3336393}
 --- !u!65 &1503767996
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3564,8 +3564,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.21505384, y: 0.99848384, z: 2.8889723}
-  m_Center: {x: 1.2961775, y: 0.00076012954, z: -0.051203866}
+  m_Size: {x: 0.23037666, y: 1.679974, z: 2.8889723}
+  m_Center: {x: 1.2885163, y: 0.34150437, z: -0.051203866}
 --- !u!1 &1529588139
 GameObject:
   m_ObjectHideFlags: 0
@@ -4143,8 +4143,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: -5.8073, y: -58.4816}
-  m_SizeDelta: {x: 930.6236, y: 170.8074}
+  m_AnchoredPosition: {x: 0.49409, y: -32}
+  m_SizeDelta: {x: 918.02, y: 176.2734}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &1807692335
 MonoBehaviour:
