@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - Collectable
+  - Boundary
   layers:
   - Default
   - TransparentFX
