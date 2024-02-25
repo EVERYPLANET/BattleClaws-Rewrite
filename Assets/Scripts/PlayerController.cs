@@ -31,15 +31,27 @@ public class PlayerController : MonoBehaviour
 
     // New input system, for more info see hierarchy + input folder in Assets
     public void OnMove(InputAction.CallbackContext ctx) => _input = ctx.ReadValue<Vector2>();
-    
+
     private void Move()
     {
-        if(!_isDropped)
-            _handle.transform.Translate(new Vector3(_input.x, 0, _input.y) * Properties.Speed * Time.deltaTime);
+        if (!_isDropped && _input != Vector2.zero)
+        {
+            Vector3 movement = new Vector3(_input.x, 0, _input.y) * Properties.Speed * Time.fixedDeltaTime;
+            Vector3 newPosition = _handle.GetComponent<Rigidbody>().position + movement;
+
+            RaycastHit hit;
+            if (Physics.Raycast(_handle.GetComponent<Rigidbody>().position, movement.normalized, out hit, movement.magnitude))
+            {
+                newPosition = hit.point - movement.normalized * 0.05f;
+                StartCoroutine(Properties.SpeedEffect(0, 0.1f));
+            }
+
+            _handle.GetComponent<Rigidbody>().MovePosition(newPosition);
+        }
     }
 
     #endregion
-    
+
     #region Drop Input & Coroutine
     public void OnDrop(InputAction.CallbackContext ctx)
     {
