@@ -783,7 +783,7 @@ GameObject:
   - component: {fileID: 839545937}
   - component: {fileID: 839545936}
   m_Layer: 5
-  m_Name: 3D Models
+  m_Name: Credit TW
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -806,7 +806,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -469, y: -314}
+  m_AnchoredPosition: {x: -480, y: -293}
   m_SizeDelta: {x: 577.5776, y: 184.7933}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &839545936
@@ -1195,7 +1195,7 @@ GameObject:
   - component: {fileID: 1409712831}
   - component: {fileID: 1409712830}
   m_Layer: 5
-  m_Name: Design Credit
+  m_Name: ' Credit LM'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1218,7 +1218,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -445, y: -17}
+  m_AnchoredPosition: {x: -528, y: -7}
   m_SizeDelta: {x: 433.3124, y: 137.45}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1409712830
@@ -1241,7 +1241,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Lead Design
+  m_text: Created by
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 58768ab4d5f2faa428a65aa021ab67b7, type: 2}
   m_sharedMaterial: {fileID: -973849912930560469, guid: 58768ab4d5f2faa428a65aa021ab67b7, type: 2}
@@ -1330,7 +1330,7 @@ GameObject:
   - component: {fileID: 1461992887}
   - component: {fileID: 1461992886}
   m_Layer: 5
-  m_Name: Production Credit
+  m_Name: Credit RA
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1353,7 +1353,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 449, y: -319}
+  m_AnchoredPosition: {x: 439, y: -294}
   m_SizeDelta: {x: 577.5776, y: 184.7933}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1461992886
@@ -1376,7 +1376,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Production
+  m_text: Credit
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 58768ab4d5f2faa428a65aa021ab67b7, type: 2}
   m_sharedMaterial: {fileID: -973849912930560469, guid: 58768ab4d5f2faa428a65aa021ab67b7, type: 2}
@@ -1680,7 +1680,7 @@ GameObject:
   - component: {fileID: 1733852068}
   - component: {fileID: 1733852067}
   m_Layer: 5
-  m_Name: Lead Programming Credit
+  m_Name: Credit JK
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1703,7 +1703,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 460, y: 4}
+  m_AnchoredPosition: {x: 460, y: -19}
   m_SizeDelta: {x: 577.5776, y: 184.7933}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1733852067
