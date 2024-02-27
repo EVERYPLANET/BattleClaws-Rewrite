@@ -23,7 +23,7 @@ public class ModeSelection : MonoBehaviour
     [SerializeField] private string ModeNameString;
     [SerializeField] private string ModeSceneToLoad;
     [SerializeField] private int requiredPlayers;
-    [SerializeField] private GameObject FutureModesInfo;
+  
    
 
     
@@ -34,7 +34,7 @@ public class ModeSelection : MonoBehaviour
     {
         UpdateTextDisplay();
         SliderHolder.SetActive(false); // turn the slider off on start
-        FutureModesInfo.SetActive(false);
+     
     }
 
 
@@ -161,21 +161,21 @@ public class ModeSelection : MonoBehaviour
         else if (ModeNameString == "Coming Soon")
         {
             StatusText.text = "More Game Modes Coming Soon!";
-            ComingSoonInfo();
+           // ComingSoonInfo();
         }
     }
 
-    public void ComingSoonInfo()
-    {
-        Animator panelAnim = FutureModesInfo.GetComponent<Animator>();
-        FutureModesInfo.SetActive(true);
-        if (panelAnim == null)
-        {
-            panelAnim.SetTrigger("Activate");
-        }
-        else
-        {
-            panelAnim.SetTrigger("DeActivate");
-        }
-    }
+    //public void ComingSoonInfo()
+   // {
+       // Animator panelAnim = FutureModesInfo.GetComponent<Animator>();
+       // FutureModesInfo.SetActive(true);
+           // if (panelAnim == null)
+           // {
+             //   panelAnim.SetTrigger("Activate");
+          //  }
+          //  else
+         //   {
+//panelAnim.SetTrigger("DeActivate");
+         //   }
+   // }
 }
