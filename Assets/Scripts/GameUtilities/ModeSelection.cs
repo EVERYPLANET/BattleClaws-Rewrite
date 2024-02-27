@@ -60,7 +60,7 @@ public class ModeSelection : MonoBehaviour
             if (ModeNameString != "Coming Soon")
             {
                 votesForThisMode++;
-                VoteDisplay.text = ("Votes: " + votesForThisMode).ToString();
+                
                 checkVotes();
             }
 
@@ -73,14 +73,8 @@ public class ModeSelection : MonoBehaviour
         if (other.CompareTag("Collectable"))
         {
             votesForThisMode--;
-            if (votesForThisMode <= 0)
-            {
-               UpdateTextDisplay();
-            }
-            else
-            {
-               VoteDisplay.text = ("Votes: " + votesForThisMode).ToString();
-            }
+          
+          
            checkVotes();
            UpdateTextDisplay();
         }
