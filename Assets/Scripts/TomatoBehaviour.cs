@@ -19,7 +19,14 @@ public class TomatoBehaviour : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        GetComponent<Rigidbody>().AddForce(transform.forward * tomatoSpeed, ForceMode.Impulse);
+        //GetComponent<Rigidbody>().AddForce(transform.forward * tomatoSpeed, ForceMode.Impulse);
+        GameObject player = GameObject.FindGameObjectWithTag("Player");
+
+        if (player != null)
+        {
+            Vector3 direction = (player.transform.position - transform.position).normalized;
+            GetComponent<Rigidbody>().AddForce(direction * tomatoSpeed, ForceMode.Impulse);
+        }
     }
 
     public void OnCollisionEnter(Collision other)
