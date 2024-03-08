@@ -6,6 +6,7 @@ using UnityEngine;
 public class PlayerCollisions : MonoBehaviour
 {
     private PlayerController _controller;
+    public AudioManager AudioScript;
 
     private void Awake()
     {
@@ -18,6 +19,8 @@ public class PlayerCollisions : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             _controller.KnockBack(other.transform.parent.transform, true);
+            AudioScript = FindAnyObjectByType<AudioManager>();
+            AudioScript.playChosenClip("Clash");
         }
 
         

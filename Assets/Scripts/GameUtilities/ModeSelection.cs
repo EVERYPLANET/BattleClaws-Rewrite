@@ -14,6 +14,7 @@ public class ModeSelection : MonoBehaviour
     private int possibleMaxVotes;
     private int NumReqForMajority;
     private Player playerCountScript; // attach logic later to get the active player count for determining max votes
+    public GameObject audioPrefab;
 
 
     [SerializeField] private TextMeshProUGUI VoteDisplay; // text over the Mode Chute to indicate votes applied
@@ -57,10 +58,13 @@ public class ModeSelection : MonoBehaviour
     {
         if(other.CompareTag("Collectable"))
         {
+
             if (ModeNameString != "Coming Soon")
             {
                 votesForThisMode++;
-                
+                AudioManager audioScript = audioPrefab.GetComponent<AudioManager>();
+                audioScript.playChosenClip("Score");
+
                 checkVotes();
             }
 
@@ -155,21 +159,9 @@ public class ModeSelection : MonoBehaviour
         else if (ModeNameString == "Coming Soon")
         {
             StatusText.text = "More Game Modes Coming Soon!";
-           // ComingSoonInfo();
+       
         }
     }
 
-    //public void ComingSoonInfo()
-   // {
-       // Animator panelAnim = FutureModesInfo.GetComponent<Animator>();
-       // FutureModesInfo.SetActive(true);
-           // if (panelAnim == null)
-           // {
-             //   panelAnim.SetTrigger("Activate");
-          //  }
-          //  else
-         //   {
-//panelAnim.SetTrigger("DeActivate");
-         //   }
-   // }
+  
 }
