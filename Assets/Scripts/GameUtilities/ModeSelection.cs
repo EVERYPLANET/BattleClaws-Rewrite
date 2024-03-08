@@ -37,23 +37,23 @@ public class ModeSelection : MonoBehaviour
     {
         UpdateTextDisplay();
         SliderHolder.SetActive(false); // turn the slider off on start
-        checkPlayers();
+       // checkPlayers();
 
 
     }
 
-    private void checkPlayers()
-    {
-        // Find all instances of PlayerController script in the scene
-        PlayerController[] numberOfPlayerScripts = FindObjectsOfType<PlayerController>();
+  //  private void checkPlayers()
+   // {
+    //    // Find all instances of PlayerController script in the scene
+     //   PlayerController[] numberOfPlayerScripts = FindObjectsOfType<PlayerController>();
 
         // Get the count of players
-        int currentlySpawnedInPlayers = numberOfPlayerScripts.Length;
+      //  int currentlySpawnedInPlayers = numberOfPlayerScripts.Length;
 
-        print(currentlySpawnedInPlayers);
-        possibleMaxVotes = currentlySpawnedInPlayers;
+       // print(currentlySpawnedInPlayers);
+      //  possibleMaxVotes = currentlySpawnedInPlayers;
         
-    }
+   // }
 
 
     void Update()
