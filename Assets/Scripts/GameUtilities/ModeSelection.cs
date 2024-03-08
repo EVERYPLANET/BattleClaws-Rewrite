@@ -5,6 +5,7 @@ using UnityEngine.UI;
 using TMPro;
 using UnityEngine.SceneManagement;
 using UnityEngine.WSA;
+using Unity.VisualScripting;
 
 
 
@@ -13,7 +14,7 @@ public class ModeSelection : MonoBehaviour
     private int votesForThisMode; 
     private int possibleMaxVotes;
     private int NumReqForMajority;
-    private Player playerCountScript; // attach logic later to get the active player count for determining max votes
+    private Player playerCountScript; // attach logic  to get the active player count for determining max votes
     public GameObject audioPrefab;
 
 
@@ -24,18 +25,34 @@ public class ModeSelection : MonoBehaviour
     [SerializeField] private string ModeNameString;
     [SerializeField] private string ModeSceneToLoad;
     [SerializeField] private int requiredPlayers;
-  
-   
+    private int currentlySpawnedInPlayers;
 
-    
-    
+
+
+
+
 
 
     private void Start()
     {
         UpdateTextDisplay();
         SliderHolder.SetActive(false); // turn the slider off on start
-     
+        checkPlayers();
+
+
+    }
+
+    private void checkPlayers()
+    {
+        // Find all instances of PlayerController script in the scene
+        PlayerController[] numberOfPlayerScripts = FindObjectsOfType<PlayerController>();
+
+        // Get the count of players
+        int currentlySpawnedInPlayers = numberOfPlayerScripts.Length;
+
+        print(currentlySpawnedInPlayers);
+        possibleMaxVotes = currentlySpawnedInPlayers;
+        
     }
 
 
